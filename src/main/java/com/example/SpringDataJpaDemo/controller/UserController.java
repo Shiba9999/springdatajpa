@@ -1,8 +1,8 @@
 package com.example.SpringDataJpaDemo.controller;
 
 import com.example.SpringDataJpaDemo.service.UserService;
-import com.example.SpringDataJpaDemo.userDto.CreateUserDto;
-import com.example.SpringDataJpaDemo.userDto.UserDto;
+import com.example.SpringDataJpaDemo.dto.CreateUserDto;
+import com.example.SpringDataJpaDemo.dto.UserDto;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +14,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/users")
 @AllArgsConstructor
+//this is for no need to write contructor for UserService file here
+//    public UserController(UserService userService) {
+//        this.userService = userService;
+//    }
+
+
 public class UserController {
 
     private final UserService userService;

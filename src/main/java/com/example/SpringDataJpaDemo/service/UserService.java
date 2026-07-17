@@ -2,19 +2,14 @@ package com.example.SpringDataJpaDemo.service;
 
 import com.example.SpringDataJpaDemo.entities.User;
 import com.example.SpringDataJpaDemo.repository.UserRepository;
-import com.example.SpringDataJpaDemo.userDto.CreateUserDto;
-import com.example.SpringDataJpaDemo.userDto.UserDto;
-import jakarta.persistence.metamodel.SingularAttribute;
+import com.example.SpringDataJpaDemo.dto.CreateUserDto;
+import com.example.SpringDataJpaDemo.dto.UserDto;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 import org.springframework.stereotype.Service;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Service
 @AllArgsConstructor

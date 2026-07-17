@@ -1,4 +1,4 @@
-package com.example.SpringDataJpaDemo.userDto;
+package com.example.SpringDataJpaDemo.dto;
 
 
 import lombok.AllArgsConstructor;
