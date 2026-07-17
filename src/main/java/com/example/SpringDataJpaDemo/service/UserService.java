@@ -6,6 +6,10 @@ import com.example.SpringDataJpaDemo.dto.CreateUserDto;
 import com.example.SpringDataJpaDemo.dto.UserDto;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -64,6 +68,7 @@ public class UserService {
         return new UserDto(user.getId(), user.getName(), user.getEmail());
 
     }
+
     @Transactional
     public UserDto patchUser(Long id, CreateUserDto patchUserDto) {
 
@@ -78,5 +83,24 @@ public class UserService {
         // no save
 
         return new UserDto(user.getId(), user.getName(), user.getEmail());
+    }
+
+    public List<UserDto> getUserPaginated(int page, int pageSize, String direction, String sortBy) {
+        Sort sort;
+        sort = direction.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() :
+                Sort.by(sortBy).descending();
+        Pageable pageable = PageRequest.of(page, pageSize, sort);
+
+        Page<User> userPage = userRepository.findAll(pageable);
+
+//        return userPage.getContent().stream()
+//                .map(user -> new UserDto(user.getId(), user.getName(), user.getEmail()))
+//                .toList();
+
+        List<UserDto> userDtoList = new ArrayList<>();
+        userPage.forEach(user -> {
+            userDtoList.add(new UserDto(user.getId(), user.getName(), user.getEmail()));
+        });
+        return userDtoList;
     }
 }

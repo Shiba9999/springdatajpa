@@ -33,8 +33,8 @@ public class OrderService {
 
         return new OrderDto(savedOrder.getId(), savedOrder.getProductName(),
 
-                new UserDto(savedOrder.getUser().getId(), savedOrder.getUser().getName(),savedOrder.getUser().getEmail())
-                );
+                new UserDto(savedOrder.getUser().getId(), savedOrder.getUser().getName(), savedOrder.getUser().getEmail())
+        );
 
 
     }
@@ -44,7 +44,7 @@ public class OrderService {
         List<Order> orders = orderRepository.findByUserId(userId);
         List<OrderDto> orderDtos = new ArrayList<>();
 
-        orders.forEach(order ->{
+        orders.forEach(order -> {
             User orderUser = order.getUser();
             OrderDto orderDto = new OrderDto(
                     order.getId(),
@@ -53,7 +53,7 @@ public class OrderService {
             );
             orderDtos.add(orderDto);
         });
-        return orderDtos ;
+        return orderDtos;
 
     }
 }

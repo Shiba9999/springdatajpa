@@ -24,7 +24,7 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.CREATED).body(orderService.createOrder(userId,createOrderDto));
     }
 
-    //Get orders of a perticular User
+    //Get orders of a particular User
 
     @GetMapping
     public ResponseEntity<List<OrderDto>> getOrderByUserId(@PathVariable Long userId ) {
