@@ -30,7 +30,7 @@ public class OrderService {
         order.setUser(user);
         order.setProductName(createOrderDto.getProductName());
         Order savedOrder = orderRepository.save(order);
-
+        System.out.println("savedOrder" + savedOrder);
         return new OrderDto(savedOrder.getId(), savedOrder.getProductName(),
 
                 new UserDto(savedOrder.getUser().getId(), savedOrder.getUser().getName(), savedOrder.getUser().getEmail())

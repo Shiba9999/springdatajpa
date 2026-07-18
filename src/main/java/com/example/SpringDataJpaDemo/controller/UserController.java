@@ -39,7 +39,6 @@ public class UserController {
                                                           @RequestParam (defaultValue = "asc") String direction,
                                                           @RequestParam (defaultValue = "name") String sortBy
 
-
                                                           ) {
         return ResponseEntity.status(HttpStatus.OK).body(userService.getUserPaginated(page,pageSize,direction,sortBy));
     }
