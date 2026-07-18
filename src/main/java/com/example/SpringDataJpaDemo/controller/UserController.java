@@ -3,6 +3,7 @@ package com.example.SpringDataJpaDemo.controller;
 import com.example.SpringDataJpaDemo.service.UserService;
 import com.example.SpringDataJpaDemo.dto.CreateUserDto;
 import com.example.SpringDataJpaDemo.dto.UserDto;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<UserDto> createUser(@RequestBody CreateUserDto createUserDto) {
+    public ResponseEntity<UserDto> createUser( @Valid @RequestBody CreateUserDto createUserDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.saveUser(createUserDto));
     }
 
