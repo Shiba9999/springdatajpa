@@ -1,13 +1,12 @@
 package com.example.SpringDataJpaDemo.exception;
 
+/**
+ * Thrown when a user cannot be found by id or email.
+ * Handled by GlobalExceptionHandler → HTTP 404 + USER_NOT_FOUND.
+ */
 public class UserNotFoundException extends RuntimeException {
 
-    //custom exception extends and used super to call the parent class constructor
-    //then in service class of userService we throw like this  User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found with id " + id));
-    //then we made the global handler
-
-
-    public UserNotFoundException (String errorMsg){
-        super(errorMsg);
+    public UserNotFoundException(String errorMsg) {
+        super(errorMsg); // RuntimeException stores the message
     }
 }

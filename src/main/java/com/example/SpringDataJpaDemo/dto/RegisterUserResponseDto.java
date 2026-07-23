@@ -5,14 +5,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Safe user representation for API responses (no password field).
+ * Response after register — confirms creation without returning the password.
  */
 @Getter
 @Setter
 @AllArgsConstructor
-public class UserDto {
+public class RegisterUserResponseDto {
 
-    private Long Id;
     private String name;
-    private String email;
+    private Long id;
 }
